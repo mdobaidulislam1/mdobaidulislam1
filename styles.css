@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@500&display=swap');
+html,
+body,
+section,
+figure {
+  display: grid;
+}
+
+html {
+  overflow-x: hidden;
+  scrollbar-color: crimson rgba(0, 0, 0, 0.0666666667);
+}
+
+body {
+  background: #212121;
+}
+
+section {
+  filter: drop-shadow(5px 5px 13px rgba(0, 0, 0, 0.6));
+}
+
+figure {
+  --s: -1;
+  grid-area: 1/1;
+  justify-self: center;
+  margin: 17.5% 0;
+  border: solid 0.5em #dedede;
+  width: min-content;
+  translate: calc(var(--s) * 30%) calc(var(--s) * 35%);
+  rotate: calc(var(--s) * 15deg);
+  font: 500 1em/1.25 grandstander, cursive;
+}
+
+.filtered {
+  --s: 1;
+  filter: url(#select);
+}
+.filtered img {
+  mask: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.5) 33.333%,
+      rgba(0, 0, 0, 0.75) 66.667%
+    )
+    calc((1 - var(--k, 0)) * 100%) / 300%;
+  transition: mask-position 1.5s ease-in;
+}
+.filtered:hover {
+  --k: 1;
+}
+
+.original {
+  background: #dedede;
+}
+
+img {
+  width: min(57.5vw, 80vh);
+  aspect-ratio: 5/3;
+  object-fit: cover;
+}
+
+figcaption {
+  padding-top: 0.5em;
+  background: #dedede;
+  color: #212121;
+}
